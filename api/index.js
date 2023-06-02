@@ -1,14 +1,24 @@
 const express = require('express');
 const axios = require('axios');
+const { findId, getDecimals } = require('./utils');
 
 const server = express();
 
 server.get('/api/items', async (req, res) => {
   const { q } = req.query;
-  const response = await axios(`https://api.mercadolibre.com/sites/MLA/search?q=${q}&limit=4`);
-  const products = response.data.results;
-  // eslint-disable-next-line max-len
-  const categories = response.data.filters[0].values[0].path_from_root.map((category) => category.name);
+  const { data } = await axios(`https://api.mercadolibre.com/sites/MLA/search?q=${q}&limit=4`);
+
+  let categories;
+  if (data.filters.length > 0) {
+    // eslint-disable-next-line max-len
+    categories = data.filters[0].values[0].path_from_root.map((category) => category.name);
+  } else {
+    // eslint-disable-next-line max-len
+    const id = findId(data.available_filters);
+
+    const { data: categoriesData } = await axios(`https://api.mercadolibre.com/categories/${id}`);
+    categories = categoriesData.path_from_root.map((categ) => categ.name);
+  }
 
   const searchResult = {
     author: {
@@ -16,13 +26,13 @@ server.get('/api/items', async (req, res) => {
       lastname: 'Pecorale',
     },
     categories,
-    items: products.map((prod) => ({
+    items: data.results.map((prod) => ({
       id: prod.id,
       title: prod.title,
       price: {
         currency: prod.currency_id,
-        amount: Number(prod.price.toString().split('.')[0]),
-        decimals: Number(prod.price.toString().split('.')[1]) || 0,
+        amount: Math.trunc(prod.price),
+        decimals: getDecimals(prod.price),
       },
       picture: prod.thumbnail,
       condition: prod.condition,
