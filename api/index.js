@@ -1,6 +1,6 @@
 const express = require('express');
 const axios = require('axios');
-const { findId, getDecimals } = require('./utils');
+const { findId, getDecimals, getCategories } = require('./utils');
 
 const server = express();
 
@@ -16,8 +16,7 @@ server.get('/api/items', async (req, res) => {
     // eslint-disable-next-line max-len
     const id = findId(data.available_filters);
 
-    const { data: categoriesData } = await axios(`https://api.mercadolibre.com/categories/${id}`);
-    categories = categoriesData.path_from_root.map((categ) => categ.name);
+    categories = await getCategories(id);
   }
 
   const searchResult = {
@@ -42,6 +41,39 @@ server.get('/api/items', async (req, res) => {
   };
 
   res.json(searchResult);
+});
+
+server.get('/api/items/:id', async (req, res) => {
+  const { id } = req.params;
+  const { data } = await axios(`https://api.mercadolibre.com/items/${id}`);
+
+  // eslint-disable-next-line camelcase
+  const info = await axios(`https://api.mercadolibre.com/items/${id}/description`);
+
+  const product = {
+    author: {
+      name: 'Matias',
+      lastname: 'Pecorale',
+    },
+    item: {
+      id: data.id,
+      title: data.title,
+      price: {
+        currency: data.currency_id,
+        amount: Math.trunc(data.price),
+        decimals: getDecimals(data.price),
+      },
+      picture: data.thumbnail,
+      condition: data.condition,
+      free_shipping: data.shipping.free_shipping,
+      sold_quantity: data.sold_quantity,
+      // eslint-disable-next-line camelcase
+      description: info.data.plain_text,
+    },
+    categories: await getCategories(data.category_id),
+  };
+
+  res.json(product);
 });
 
 server.listen(3001, () => {
