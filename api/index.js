@@ -16,9 +16,9 @@ server.get('/api/items', async (req, res) => {
     // eslint-disable-next-line max-len
     const id = findId(data.available_filters);
 
-    categories = await getCategories(id);
+    const { data: categoriesData } = await axios(`https://api.mercadolibre.com/categories/${id}`);
+    categories = getCategories(categoriesData);
   }
-
   const searchResult = {
     author: {
       name: 'Matias',
@@ -50,6 +50,8 @@ server.get('/api/items/:id', async (req, res) => {
   // eslint-disable-next-line camelcase
   const info = await axios(`https://api.mercadolibre.com/items/${id}/description`);
 
+  const { data: categoriesData } = await axios(`https://api.mercadolibre.com/categories/${data.category_id}`);
+
   const product = {
     author: {
       name: 'Matias',
@@ -70,7 +72,7 @@ server.get('/api/items/:id', async (req, res) => {
       // eslint-disable-next-line camelcase
       description: info.data.plain_text,
     },
-    categories: await getCategories(data.category_id),
+    categories: getCategories(categoriesData),
   };
 
   res.json(product);

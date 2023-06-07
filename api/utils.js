@@ -1,5 +1,3 @@
-const axios = require('axios');
-
 const findId = (filtersArray) => {
   const { id } = filtersArray
     .find((filter) => filter.id === 'category')
@@ -14,9 +12,8 @@ const getDecimals = (price) => {
   return Number(decimal);
 };
 
-const getCategories = async (id) => {
-  const { data: categoriesData } = await axios(`https://api.mercadolibre.com/categories/${id}`);
-  const categories = categoriesData.path_from_root.map((categ) => categ.name);
+const getCategories = (data) => {
+  const categories = data.path_from_root.map((categ) => categ.name);
   return categories;
 };
 
