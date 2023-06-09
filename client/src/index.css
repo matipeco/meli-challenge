@@ -3,7 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+html{
+  font-size: 10px;
+}
 :root{
   --yellow:#ffe600;
   --grey-100:#eeeeee;
