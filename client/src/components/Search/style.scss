@@ -3,12 +3,18 @@
     display: flex;
     div{
       padding: 1rem 0;
-      background-color: var(--yellow);
       display: flex;
       align-items: center;
       justify-content: center;
       }
-  
+
+    label{
+      width: 100%;
+    }
+    &__form{
+      display: flex;
+      width: 100%;
+    }
   &__logo{
     margin-right:3rem;
     width: auto;
@@ -23,15 +29,10 @@
 
   }
   &__button{
-    // background-color: red;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border: none;
-    padding: 0.7rem 1.2rem;
-    height: 100%;
+    padding: 0 1rem;
     &-logo{
-      // 
+      width: 1.2rem;
     }
   }
 
