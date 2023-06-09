@@ -1,13 +1,16 @@
 const express = require('express');
+// eslint-disable-next-line import/no-extraneous-dependencies
+const cors = require('cors');
 const axios = require('axios');
 const { findId, getDecimals, getCategories } = require('./utils');
 
 const server = express();
 
+server.use(cors());
+
 server.get('/api/items', async (req, res) => {
   const { q } = req.query;
   const { data } = await axios(`https://api.mercadolibre.com/sites/MLA/search?q=${q}&limit=4`);
-
   let categories;
   if (data.filters.length > 0) {
     // eslint-disable-next-line max-len
