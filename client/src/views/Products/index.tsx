@@ -3,6 +3,7 @@ import { Container } from "../../components/Container"
 import axios from 'axios';
 import { SearchResponse } from "../../types";
 import { useLocation } from "react-router-dom";
+import { Card } from "../../components/Card";
 
 export const Products:FunctionComponent = () => { 
   const { search } = useLocation();
@@ -15,6 +16,7 @@ export const Products:FunctionComponent = () => {
     try {
       const { data } = await axios.get<SearchResponse>(`http://localhost:3001/api/items?q=${q}`);
       setInfo(data);
+      console.log(data)
 
     } catch (error) {
       console.log(error);
@@ -28,7 +30,11 @@ export const Products:FunctionComponent = () => {
   return(
    <main>
     <Container>
-      Products
+      {info?.items.map((prod)=>{
+        return(
+          <Card prod={prod}/>
+        )
+      })}
     </Container>
    </main> 
   )
