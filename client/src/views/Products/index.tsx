@@ -4,6 +4,7 @@ import axios from 'axios';
 import { SearchResponse } from "../../types";
 import { useLocation } from "react-router-dom";
 import { Card } from "../../components/Card";
+import './style.scss'
 
 export const Products:FunctionComponent = () => { 
   const { search } = useLocation();
@@ -27,9 +28,15 @@ export const Products:FunctionComponent = () => {
     getProducts()
   },[q])
 
+  {console.log(info?.categories)}
   return(
-   <main>
+   <main className="container-cards">
     <Container>
+        {info?.categories.map((cat)=>{
+          return(
+            <span className="categories">{cat} - </span>
+          )
+        })}
       {info?.items.map((prod)=>{
         return(
           <Card prod={prod}/>
