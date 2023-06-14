@@ -17,4 +17,16 @@ const getCategories = (data) => {
   return categories;
 };
 
-module.exports = { findId, getDecimals, getCategories };
+const translateCondition = (condition) => {
+  const translation = {
+    new: 'Nuevo',
+    used: 'Usado',
+    refurbished: 'Reacondicionado',
+    not_specified: 'No especificado',
+  };
+  return translation[condition] || translation.not_specified;
+};
+
+module.exports = {
+  findId, getDecimals, getCategories, translateCondition,
+};

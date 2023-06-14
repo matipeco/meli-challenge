@@ -2,7 +2,9 @@ const express = require('express');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const cors = require('cors');
 const axios = require('axios');
-const { findId, getDecimals, getCategories } = require('./utils');
+const {
+  findId, getDecimals, getCategories, translateCondition,
+} = require('./utils');
 
 const server = express();
 
@@ -37,7 +39,7 @@ server.get('/api/items', async (req, res) => {
         decimals: getDecimals(prod.price),
       },
       picture: prod.thumbnail,
-      condition: prod.condition,
+      condition: translateCondition(prod.condition),
       free_shipping: prod.shipping.free_shipping,
 
     })),
@@ -69,7 +71,7 @@ server.get('/api/items/:id', async (req, res) => {
         decimals: getDecimals(data.price),
       },
       picture: data.thumbnail,
-      condition: data.condition,
+      condition: translateCondition(data.condition),
       free_shipping: data.shipping.free_shipping,
       sold_quantity: data.sold_quantity,
       // eslint-disable-next-line camelcase
