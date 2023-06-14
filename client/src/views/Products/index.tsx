@@ -17,7 +17,6 @@ export const Products:FunctionComponent = () => {
     try {
       const { data } = await axios.get<SearchResponse>(`http://localhost:3001/api/items?q=${q}`);
       setInfo(data);
-      console.log(data)
 
     } catch (error) {
       console.log(error);
@@ -28,18 +27,17 @@ export const Products:FunctionComponent = () => {
     getProducts()
   },[q])
 
-  {console.log(info?.categories)}
   return(
    <main className="container-cards">
     <Container>
         {info?.categories.map((cat)=>{
           return(
-            <span className="categories">{cat} - </span>
+            <span className="categories"> {cat} - </span>
           )
         })}
       {info?.items.map((prod)=>{
         return(
-          <Card prod={prod}/>
+          <Card prod={prod} key={prod.id}/>
         )
       })}
     </Container>

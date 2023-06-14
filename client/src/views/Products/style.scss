@@ -1,7 +1,10 @@
 main{
   background-color: var(--grey-100);
-  
-}
-.categories{
-  margin: 1rem 0;
+  padding-bottom: 4rem;
+  span{
+    font-size: 1.6rem;
+    color: var(--grey-300);
+    padding: 1.5rem 0;
+    display: inline-block;
+  }
 }
