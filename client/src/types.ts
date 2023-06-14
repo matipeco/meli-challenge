@@ -1,14 +1,20 @@
 
-export type SearchResponse = {
+export type Response = {
   author: {
     name: string
     lastname:string
   }
   categories: string[]
-  items: Product[]
 }
 
-export type Product = {
+export interface SearchResponse extends Response {
+  items: Product[]
+}
+export interface DetailResponse extends Response {
+  item: DetailProduct
+}
+
+export interface Product {
   id: string
   title: string
   price: {
@@ -20,3 +26,10 @@ export type Product = {
   condition: string
   free_shipping: boolean
 }
+
+export interface DetailProduct extends Product{
+  sold_quantity: number,
+  description: string
+}
+
+
