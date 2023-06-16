@@ -1,10 +1,11 @@
-import { FunctionComponent, createElement, useEffect, useState } from "react"
-import { Container } from "../../components/Container"
+import { FunctionComponent, useEffect, useState } from "react";
+import { Container } from "../../components/Container";
 import axios from 'axios';
 import { SearchResponse } from "../../types";
 import { useLocation } from "react-router-dom";
 import { Card } from "../../components/Card";
-import './style.scss'
+import { Breadcrumb } from "../../components/Breadcrumb";
+import './style.scss';
 
 export const Products:FunctionComponent = () => { 
   const { search } = useLocation();
@@ -30,12 +31,8 @@ export const Products:FunctionComponent = () => {
   return(
    <main className="container-cards">
     <Container>
-        {info?.categories.map((cat)=>{
-          return(
-            <span key={cat} className="categories"> {cat} - </span>
-          )
-        })}
-      {info?.items.map((prod)=>{
+        {info?.categories === undefined ? null : <Breadcrumb categories={info?.categories}/> }
+        {info?.items.map((prod)=>{
         return(
           <Card prod={prod} key={prod.id}/>
         )
