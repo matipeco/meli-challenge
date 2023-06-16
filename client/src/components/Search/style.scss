@@ -26,11 +26,14 @@
     border: none;
     padding: 0.5rem 1rem;
     width: 100%;
-
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
   }
   &__button{
     border: none;
     padding: 0 1rem;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
     &-logo{
       width: 1.2rem;
     }

@@ -6,7 +6,6 @@ import { Container } from "../Container"
 import { useNavigate } from 'react-router-dom'
 
 export const Search:FunctionComponent = () =>{
-
   const navigate = useNavigate();
 
   const [input, setInput] = useState<string>("");
