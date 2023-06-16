@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useState } from "react"
+import { FunctionComponent, createElement, useEffect, useState } from "react"
 import { Container } from "../../components/Container"
 import axios from 'axios';
 import { SearchResponse } from "../../types";
@@ -32,7 +32,7 @@ export const Products:FunctionComponent = () => {
     <Container>
         {info?.categories.map((cat)=>{
           return(
-            <span className="categories"> {cat} - </span>
+            <span key={cat} className="categories"> {cat} - </span>
           )
         })}
       {info?.items.map((prod)=>{
