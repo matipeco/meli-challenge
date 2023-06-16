@@ -1,9 +1,11 @@
 .detail{
   &__container{
     background-color: #ffffff;
-    padding: 3rem;
+    padding: var(--spacing-m);
     display: flex;
     flex-wrap: wrap;
+    color: var(--grey-400);
+
   }
   &__contain{
     margin-left: 1rem;
@@ -17,8 +19,9 @@
     margin-bottom: 1rem;
   }
   &__title{
+    color: var(--grey-400);
     font-weight: 900;
-    font-size: 2.2rem;
+    font-size: var(--font-500);
     margin-bottom: 2rem;
   }
   &__price{
@@ -33,5 +36,17 @@
     background-color: var(--blue);
     color:#ffffff;
     border-radius: 3px;
+  }
+  &__description-title{
+    color: var(--grey-400);
+    font-size: var(--font-600);
+    margin: 6rem 0 var(--spacing-m);
+  }
+  &__description-text{
+    color: var(--grey-200);
+    font-size: var(--font-300);
+    &+&{
+      margin-top: var(--spacing-s);
+    }
   }
 }

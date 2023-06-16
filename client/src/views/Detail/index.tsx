@@ -3,15 +3,17 @@ import { Container } from "../../components/Container"
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { DetailProduct, DetailResponse } from "../../types";
+import { Breadcrumb } from "../../components/Breadcrumb";
 import './style.scss';
 
 export const Detail = () => {
   const { id } = useParams();
 
   const [product, setProduct] = useState<DetailProduct>();
-  const [categories, setCategories] = useState<string[] | undefined>();
+  const [categories, setCategories] = useState<string[]>([]);
+  
 
-  const getDetail = async()=>{
+  const getDetail = async() => {
     const { data } = await axios.get<DetailResponse>(`http://localhost:3001/api/items/${id}`);
     setProduct(data.item)
     setCategories(data.categories)
@@ -39,14 +41,13 @@ export const Detail = () => {
     return decimals;
   }
 
+  const descriptionArray = product.description.split("\n").filter((str)=> str);
+
   return(
     <main>
       <Container>
-        {categories?.map((cat)=>{
-          return <span key={product.id}>{cat}</span>
-        })}
+        <Breadcrumb categories={categories}/>
         <article className="detail__container">
-          
           <img className="detail__image" src={product.picture} alt={product.title} />
           
           <div className="detail__contain">
@@ -59,8 +60,12 @@ export const Detail = () => {
             </p>
             <button className="detail__button">Comprar</button>
           </div>
-          
-          <p>{product.description}</p>
+          <h3 className="detail__description-title">Descripción del producto</h3>
+          {descriptionArray.map((paragraph)=>{
+            return(
+              <p className="detail__description-text" key={paragraph}>{paragraph}</p>
+            )
+          })}
         </article>
       </Container>
     </main>
