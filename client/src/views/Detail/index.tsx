@@ -44,7 +44,7 @@ export const Detail = () => {
   const descriptionArray = product.description.split("\n").filter((str)=> str);
 
   return(
-    <main>
+    <main className="main__detail">
       <Container>
         <Breadcrumb categories={categories}/>
         <article className="detail__container">
