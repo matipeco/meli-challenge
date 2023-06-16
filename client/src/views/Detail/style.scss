@@ -5,29 +5,30 @@
     display: flex;
     flex-wrap: wrap;
     color: var(--grey-400);
-
   }
   &__contain{
-    margin-left: 1rem;
-    width: 26rem;
+    max-width: 28rem;
   }
   &__image{
     width: 55rem;
   }
   &__condition{
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+    font-size: var(--font-200);
+    margin-bottom: var(--spacing-s);
   }
   &__title{
     color: var(--grey-400);
     font-weight: 900;
     font-size: var(--font-500);
-    margin-bottom: 2rem;
+    margin-bottom: var(--spacing-m);
   }
   &__price{
-    font-size: 3rem;
-    font-weight: 600;
-    margin-bottom: 3rem;
+    font-size: var(--font-700);
+    margin-bottom: var(--spacing-m);
+  }
+  &__decimals{
+    font-size: var(--font-500);
+    margin-left: 0.5rem;
   }
   &__button{
     width: 100%;
@@ -37,7 +38,11 @@
     color:#ffffff;
     border-radius: 3px;
   }
+  &__container-div{
+    width: 100%;
+  }
   &__description-title{
+    display: block;
     color: var(--grey-400);
     font-size: var(--font-600);
     margin: 6rem 0 var(--spacing-m);

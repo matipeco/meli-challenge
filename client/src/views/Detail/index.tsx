@@ -56,16 +56,18 @@ export const Detail = () => {
               {product.title}
             </h2>
             <p className="detail__price">{priceFormat}
-              <sup>{getDecimals(product.price.decimals)}</sup> 
+              <sup className="detail__decimals">{getDecimals(product.price.decimals)}</sup> 
             </p>
             <button className="detail__button">Comprar</button>
           </div>
-          <h3 className="detail__description-title">Descripción del producto</h3>
-          {descriptionArray.map((paragraph)=>{
-            return(
-              <p className="detail__description-text" key={paragraph}>{paragraph}</p>
-            )
-          })}
+          <div className="detail__container-div">
+            <h3 className="detail__description-title">Descripción del producto</h3>
+            {descriptionArray.map((paragraph)=>{
+              return(
+                <p className="detail__description-text" key={paragraph}>{paragraph}</p>
+              )
+            })}
+          </div>
         </article>
       </Container>
     </main>
