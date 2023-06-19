@@ -24,6 +24,10 @@ html{
   --font-400:1.8rem;
   --font-500:2.4rem;
   --font-600:2.8rem;
-  --font-700:4.6rem;
-  
+  --font-700:4.6rem; 
+}
+
+main{
+  background-color: var(--grey-100);
+  min-height: calc(100vh - 5.2rem);
 }

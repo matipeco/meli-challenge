@@ -1,6 +1,10 @@
 .header{
     background-color: var(--yellow);
     display: flex;
+
+    a{
+      margin-right: 3rem;
+    }
     div{
       padding: 1rem 0;
       display: flex;
@@ -8,15 +12,22 @@
       justify-content: center;
       }
 
-    label{
+    &__label{
       width: 100%;
+      clip: rect(0 0 0 0);
+      border: 0;
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
     }
     &__form{
       display: flex;
       width: 100%;
     }
   &__logo{
-    margin-right:3rem;
     width: auto;
     height: 100%;
   }

@@ -8,8 +8,6 @@ import { Link, useNavigate } from 'react-router-dom'
 export const Search:FunctionComponent = () =>{
   const navigate = useNavigate();
 
-  const currentPath = window.location.pathname;
-
   const [input, setInput] = useState<string>("");
 
   const handleSubmit = (ev:FormEvent<HTMLFormElement>)=>{
@@ -27,19 +25,17 @@ export const Search:FunctionComponent = () =>{
   return(
       <header className="header">
         <Container>
-        {currentPath !=="/" &&
          <Link to={"/"}>
             <img className="header__logo" src={logo} alt="" />
          </Link>
          
-         }
         <form action="" className="header__form" onSubmit={handleSubmit}>
-          <label htmlFor="input">
-            <input id="input" className="header__input" 
+
+          <label className="header__label" htmlFor="input">Search</label>
+          <input id="input" className="header__input" 
             type="text" placeholder="Nunca dejes de buscar" 
             value={input} 
             onChange={handleChange}/>
-          </label>
           <button className="header__button">
             <img src={lupa} alt="" className="header__button-logo" />
           </button> 
