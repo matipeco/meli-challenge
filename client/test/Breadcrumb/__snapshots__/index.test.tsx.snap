@@ -1,0 +1,31 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Componente Breadcrumb > Renderiza las categorias 1`] = `
+<div>
+  <ol
+    class="breadcrumb"
+  >
+    <li>
+      <a
+        href="#"
+      >
+        Almacen
+      </a>
+    </li>
+    <li>
+      <a
+        href="#"
+      >
+        Supermercado
+      </a>
+    </li>
+    <li>
+      <a
+        href="#"
+      >
+        Alimentos
+      </a>
+    </li>
+  </ol>
+</div>
+`;
