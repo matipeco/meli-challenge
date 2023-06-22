@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { DetailProduct, DetailResponse } from "../../types";
 import { Breadcrumb } from "../../components/Breadcrumb";
+import { Spinner } from "../../components/Spinner";
 import './style.scss';
 
 export const Detail = () => {
@@ -11,10 +12,11 @@ export const Detail = () => {
 
   const [product, setProduct] = useState<DetailProduct>();
   const [categories, setCategories] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   
-
   const getDetail = async() => {
     const { data } = await axios.get<DetailResponse>(`http://localhost:3001/api/items/${id}`);
+    setIsLoading(false)
     setProduct(data.item)
     setCategories(data.categories)
   }
@@ -46,6 +48,10 @@ export const Detail = () => {
   return(
     <main className="main__detail">
       <Container>
+      {isLoading ? (
+         <Spinner/>
+        ) : 
+        (<>  
         <Breadcrumb categories={categories}/>
         <article className="detail__container">
           <img className="detail__image" src={product.picture} alt={product.title} />
@@ -69,7 +75,10 @@ export const Detail = () => {
             })}
           </div>
         </article>
+      </>)}
       </Container>
     </main>
   )
 }
+
+// Porque no se me muestra el spinner?? En products si
