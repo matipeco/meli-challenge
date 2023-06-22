@@ -5,7 +5,7 @@ import { SearchResponse } from "../../types";
 import { useLocation } from "react-router-dom";
 import { Card } from "../../components/Card";
 import { Breadcrumb } from "../../components/Breadcrumb";
-import spinner from '../../assets/spinner.svg'
+import { Spinner } from "../../components/Spinner";
 import './style.scss';
 
 export const Products: FunctionComponent = () => {
@@ -35,7 +35,7 @@ export const Products: FunctionComponent = () => {
     <main className="container-cards">
       <Container>
         {isLoading ? (
-          <img src={spinner} alt="" width="40" height="40" />
+         <Spinner/>
         ) : (
           <>
             {info?.categories === undefined ? null : <Breadcrumb categories={info?.categories} />}
