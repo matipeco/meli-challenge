@@ -9,4 +9,11 @@ describe("Componente Breadcrumb", ()=>{
     )
     expect(container).toMatchSnapshot();
   })
+
+  test('Renderiza null si no recibe categorias', ()=>{
+    const { container } = render(
+      <Breadcrumb categories={[]}/>
+    )
+    expect(container).toMatchSnapshot();
+  })
 })

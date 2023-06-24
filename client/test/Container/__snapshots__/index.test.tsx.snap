@@ -1,0 +1,16 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Componente Container > Renderiza children correctamente 1`] = `
+<div>
+  <div
+    class="container"
+  >
+    <h2>
+      Hola
+    </h2>
+    <p>
+      Testeando
+    </p>
+  </div>
+</div>
+`;

@@ -29,3 +29,5 @@ exports[`Componente Breadcrumb > Renderiza las categorias 1`] = `
   </ol>
 </div>
 `;
+
+exports[`Componente Breadcrumb > Renderiza null si no recibe categorias 1`] = `<div />`;
