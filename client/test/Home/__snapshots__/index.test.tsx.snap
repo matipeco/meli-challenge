@@ -1,0 +1,20 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Componente Home > Se renderiza correctamente 1`] = `
+<div>
+  <main
+    class="landing__container"
+  >
+    <div
+      class="container"
+    >
+      <img
+        alt="mercadolibre landing"
+        class="landing__background"
+        src="/src/assets/meli-background.png"
+        width="500"
+      />
+    </div>
+  </main>
+</div>
+`;
