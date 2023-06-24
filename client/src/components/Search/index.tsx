@@ -30,13 +30,16 @@ export const Search:FunctionComponent = () =>{
          </Link>
          
         <form action="" className="header__form" onSubmit={handleSubmit}>
-
           <label className="header__label" htmlFor="input">Search</label>
-          <input id="input" className="header__input" 
-            type="text" placeholder="Nunca dejes de buscar" 
+          <input 
+            id="input" 
+            className="header__input" 
+            type="text" 
+            placeholder="Nunca dejes de buscar" 
             value={input} 
-            onChange={handleChange}/>
-          <button className="header__button">
+            onChange={handleChange}
+          />
+          <button className="header__button" aria-label="buscar producto">
             <img src={lupa} alt="" className="header__button-logo" />
           </button> 
         </form>

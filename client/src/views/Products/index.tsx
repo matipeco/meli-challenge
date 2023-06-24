@@ -15,7 +15,7 @@ export const Products: FunctionComponent = () => {
 
   const [info, setInfo] = useState<SearchResponse>();
   const [isLoading, setIsLoading] = useState<boolean>(true); 
-  
+
   const getProducts = async () => {
     try {
       const { data } = await axios.get<SearchResponse>(`http://localhost:3001/api/items?q=${q}`);
