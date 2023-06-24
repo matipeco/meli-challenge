@@ -1,0 +1,16 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Componente Spinner > Se renderiza correctamente 1`] = `
+<div>
+  <div
+    class="spinner__container"
+  >
+    <img
+      alt=""
+      height="50"
+      src="/src/assets/spinner.svg"
+      width="50"
+    />
+  </div>
+</div>
+`;

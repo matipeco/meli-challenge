@@ -1,0 +1,69 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Componente Products > Se renderiza correctamente 1`] = `
+<div>
+  <main
+    class="container-cards"
+  >
+    <div
+      class="container"
+    >
+      <ol
+        class="breadcrumb"
+      >
+        <li>
+          <a
+            href="#"
+          >
+            hola
+          </a>
+        </li>
+        <li>
+          <a
+            href="#"
+          >
+            chau
+          </a>
+        </li>
+      </ol>
+      <article
+        class="card__container"
+      >
+        <a
+          href="/items/MLA1408529234"
+        >
+          <img
+            alt="Apple iPhone 11 (128 Gb) - Blanco"
+            class="card__image"
+            src="http://http2.mlstatic.com/D_796892-MLA46114829828_052021-I.jpg"
+          />
+        </a>
+        <div
+          class="card__div"
+        >
+          <p
+            class="card__contain-price"
+          >
+            $ 340.000
+            <img
+              alt=""
+              class="card__contain-shipping"
+              src="/src/assets/ic_shipping.png"
+            />
+          </p>
+          <p
+            class="card__contain-title"
+          >
+            Apple iPhone 11 (128 Gb) - Blanco
+          </p>
+        </div>
+        <p
+          class="card__location"
+        >
+          Capital Federal
+        </p>
+      </article>
+    </div>
+  </main>
+</div>
+`;

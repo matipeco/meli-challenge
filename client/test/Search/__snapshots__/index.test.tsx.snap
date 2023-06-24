@@ -1,0 +1,51 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Componente Search > Se renderiza correctamente 1`] = `
+<div>
+  <header
+    class="header"
+  >
+    <div
+      class="container"
+    >
+      <a
+        href="/"
+      >
+        <img
+          alt=""
+          class="header__logo"
+          src="/src/assets/Logo_ML.png"
+        />
+      </a>
+      <form
+        action=""
+        class="header__form"
+      >
+        <label
+          class="header__label"
+          for="input"
+        >
+          Search
+        </label>
+        <input
+          class="header__input"
+          id="input"
+          placeholder="Nunca dejes de buscar"
+          type="text"
+          value=""
+        />
+        <button
+          aria-label="buscar producto"
+          class="header__button"
+        >
+          <img
+            alt=""
+            class="header__button-logo"
+            src="/src/assets/ic_Search.png"
+          />
+        </button>
+      </form>
+    </div>
+  </header>
+</div>
+`;
