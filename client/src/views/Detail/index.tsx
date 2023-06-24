@@ -15,23 +15,22 @@ export const Detail = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   
   const getDetail = async() => {
-    const { data } = await axios.get<DetailResponse>(`http://localhost:3001/api/items/${id}`);
-    setIsLoading(false)
-    setProduct(data.item)
-    setCategories(data.categories)
+    try {
+      const { data } = await axios.get<DetailResponse>(`http://localhost:3001/api/items/${id}`);
+      setIsLoading(false)
+      setProduct(data.item)
+      setCategories(data.categories)
+      
+    } catch (error) {
+      console.log(error)
+    }
   }
-
+  
   useEffect(()=>{
     getDetail();
   },[])
   
-  if(!product) return null;
-  
-  const priceFormat = product.price.amount.toLocaleString('es-AR', {
-    style: 'currency',
-    currency: product.price.currency,
-    minimumFractionDigits: 0,
-  })
+  console.log(product)
 
   const getDecimals = (decimals:number) =>{
     if(decimals === 0){
@@ -42,16 +41,20 @@ export const Detail = () => {
     }
     return decimals;
   }
+  
+  if(!product) return <Spinner/>;
 
+  const priceFormat = product.price.amount.toLocaleString('es-AR', {
+    style: 'currency',
+    currency: product.price.currency,
+    minimumFractionDigits: 0,
+  })
+  
   const descriptionArray = product.description.split("\n").filter((str)=> str);
-
+  
   return(
     <main className="main__detail">
       <Container>
-      {isLoading ? (
-         <Spinner/>
-        ) : 
-        (<>  
         <Breadcrumb categories={categories}/>
         <article className="detail__container">
           <img className="detail__image" src={product.picture} alt={product.title} />
@@ -67,18 +70,17 @@ export const Detail = () => {
             <button className="detail__button">Comprar</button>
           </div>
           <div className="detail__container-div">
-            <h3 className="detail__description-title">Descripción del producto</h3>
-            {descriptionArray.map((paragraph)=>{
+            {descriptionArray.length !== 0 && 
+              <h3 className="detail__description-title">Descripción del producto</h3>
+              }
+            {descriptionArray?.map((paragraph)=>{
               return(
                 <p className="detail__description-text" key={paragraph}>{paragraph}</p>
               )
             })}
           </div>
         </article>
-      </>)}
       </Container>
     </main>
   )
 }
-
-// Porque no se me muestra el spinner?? En products si
