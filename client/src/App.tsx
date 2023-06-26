@@ -3,6 +3,7 @@ import { Search } from "./components/Search/index"
 import { Home } from "./views/Home";
 import { Products } from "./views/Products";
 import { Detail } from "./views/Detail";
+import { PageNotFound } from "./components/PageNotFound";
 
 function App() {
   
@@ -13,6 +14,7 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/items' element={<Products/>}/>
         <Route path='/items/:id' element={<Detail/>}/>
+        <Route path='*' element={<PageNotFound/>}/>
       </Routes> 
     </>
   )
