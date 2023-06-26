@@ -1,6 +1,6 @@
 import { FunctionComponent, useEffect, useState } from "react";
+import axios from "axios";
 import { Container } from "../../components/Container";
-import axios from 'axios';
 import { SearchResponse } from "../../types";
 import { useLocation } from "react-router-dom";
 import { Card } from "../../components/Card";
@@ -15,6 +15,7 @@ export const Products: FunctionComponent = () => {
 
   const [info, setInfo] = useState<SearchResponse>();
   const [isLoading, setIsLoading] = useState<boolean>(true); 
+  const [error, setError] = useState<boolean>(false)
 
   const getProducts = async () => {
     try {
@@ -23,7 +24,9 @@ export const Products: FunctionComponent = () => {
       setIsLoading(false); 
 
     } catch (error) {
-      console.log(error);
+      console.log(`No hay publicaciones que coincidan con tu búsqueda`);
+      setIsLoading(false);
+      setError(true);
     }
   }
 
@@ -34,6 +37,7 @@ export const Products: FunctionComponent = () => {
   return (
     <main className="container-cards">
       <Container>
+        {error && <h2>No hay publicaciones que coincidan con tu búsqueda</h2>}
         {isLoading ? (
          <Spinner/>
         ) : (
