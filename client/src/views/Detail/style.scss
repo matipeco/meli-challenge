@@ -1,8 +1,11 @@
-
+.main__detail{
+  padding-bottom: 4rem;
+}
 .detail{
   &__container{
     background-color: #ffffff;
     padding: var(--spacing-m);
+    
     display: flex;
     flex-wrap: wrap;
     color: var(--grey-400);
