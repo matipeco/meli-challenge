@@ -1,0 +1,35 @@
+.product-not{
+  &__main{
+    // background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__article{
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    padding: 6rem;
+    width: 100%;
+    border-radius: 5px;
+    
+    img{
+      width: 7rem;
+      height: 7rem;
+      // margin-top: 1rem;
+      margin-right: 5rem;
+    }
+
+    p{
+      font-size: var(--font-500);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    ul{
+      margin-left: 1.5rem;
+      font-size: var(--font-400);
+    }
+  
+  }
+}
