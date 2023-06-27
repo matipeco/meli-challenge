@@ -1,9 +1,9 @@
 .product-not{
-  &__main{
-    // background-color: red;
+  &__div{
     display: flex;
     align-items: center;
     justify-content: center;
+    min-height: calc(100vh - 5.9rem);
   }
 
   &__article{
@@ -17,7 +17,6 @@
     img{
       width: 7rem;
       height: 7rem;
-      // margin-top: 1rem;
       margin-right: 5rem;
     }
 
