@@ -7,6 +7,7 @@ import { Card } from "../../components/Card";
 import { Breadcrumb } from "../../components/Breadcrumb";
 import { Spinner } from "../../components/Spinner";
 import './style.scss';
+import { ProductNotFound } from "../../components/ProductNotFound";
 
 export const Products: FunctionComponent = () => {
   const { search } = useLocation();
@@ -37,7 +38,7 @@ export const Products: FunctionComponent = () => {
   return (
     <main className="container-cards">
       <Container>
-        {error && <h2>No hay publicaciones que coincidan con tu búsqueda</h2>}
+        {error && <ProductNotFound/>}
         {isLoading ? (
          <Spinner/>
         ) : (
