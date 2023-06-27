@@ -1,0 +1,17 @@
+.page-not__main{
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  
+  img{
+    padding-left: 3rem;
+    width: 20rem;
+    height: 20rem;
+    margin-top: 2rem;
+  }
+  p{
+    font-size: var(--font-500);
+  }
+}
