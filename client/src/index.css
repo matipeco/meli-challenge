@@ -29,5 +29,5 @@ html{
 
 main{
   background-color: var(--grey-100);
-  min-height: calc(100vh - 5.2rem);
+  min-height: calc(100vh - 5.9rem);
 }
