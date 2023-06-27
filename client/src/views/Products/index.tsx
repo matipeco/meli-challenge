@@ -9,25 +9,25 @@ import { Spinner } from "../../components/Spinner";
 import './style.scss';
 import { ProductNotFound } from "../../components/ProductNotFound";
 
+type Status = "initial" | "loading" | "error" | "success";
+
 export const Products: FunctionComponent = () => {
   const { search } = useLocation();
   const params = new URLSearchParams(search);
   const q = params.get('q');
 
   const [info, setInfo] = useState<SearchResponse>();
-  const [isLoading, setIsLoading] = useState<boolean>(true); 
-  const [error, setError] = useState<boolean>(false)
+  const [status, setStatus] = useState<Status>("initial");
 
   const getProducts = async () => {
     try {
+      setStatus("loading");
       const { data } = await axios.get<SearchResponse>(`http://localhost:3001/api/items?q=${q}`);
       setInfo(data);
-      setIsLoading(false); 
+      setStatus("success");
 
     } catch (error) {
-      console.log(`No hay publicaciones que coincidan con tu búsqueda`);
-      setIsLoading(false);
-      setError(true);
+      setStatus("error")
     }
   }
 
@@ -38,17 +38,14 @@ export const Products: FunctionComponent = () => {
   return (
     <main className="container-cards">
       <Container>
-        {error && <ProductNotFound/>}
-        {isLoading ? (
-         <Spinner/>
-        ) : (
-          <>
-            {info?.categories === undefined ? null : <Breadcrumb categories={info?.categories} />}
-            {info?.items.map((prod) => (
-              <Card prod={prod} key={prod.id} />
-            ))}
-          </>
-        )}
+        {status === "error" && <ProductNotFound/>}
+        {status === "loading" && <Spinner/>}
+        {status === "success" && <>
+          {info?.categories === undefined ? null : <Breadcrumb categories={info?.categories} />}
+          {info?.items.map((prod) => (
+            <Card prod={prod} key={prod.id} />
+          ))}
+        </>}
       </Container>
     </main>
   )
