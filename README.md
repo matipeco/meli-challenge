@@ -6,6 +6,8 @@ de resultados y la descripción del detalle del producto, que deberás realizar 
 diseños dados en las páginas siguientes.</h4>
 <br />
 
+
+
 <ul>
 
 <h3>Stack tecnológico</h3>
