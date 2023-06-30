@@ -9,7 +9,7 @@ import { Spinner } from "../../components/Spinner";
 import './style.scss';
 import { ProductNotFound } from "../../components/ProductNotFound";
 
-type Status = "initial" | "loading" | "error" | "success";
+export type Status = "initial" | "loading" | "error" | "success";
 
 export const Products: FunctionComponent = () => {
   const { search } = useLocation();
