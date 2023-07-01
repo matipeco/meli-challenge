@@ -7,7 +7,6 @@ diseños dados en las páginas siguientes.</h4>
 <br />
 
 
-
 <ul>
 
 <h3>Stack tecnológico</h3>
@@ -31,11 +30,8 @@ A la hora de hacer la aplicación, es importante tener en cuenta ciertos detalle
 <li>Performance</li>
 <li>Escalabilidad</li>
 
-<h3>Entregable</h3>
-
-Una vez resuelto el desafío, subirlo a un repositorio de Github y enviar por mail el enlace. El
-repositorio puede ser público o privado, como prefieras.
 </ul>
+<br />
 
 <a><img width="250px" src="https://i.imgur.com/LtO2JJH.png"></a>
 <a><img width="250px" src="https://i.imgur.com/b2wonbP.png"/></a>
