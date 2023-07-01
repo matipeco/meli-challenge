@@ -37,8 +37,9 @@ Una vez resuelto el desafío, subirlo a un repositorio de Github y enviar por ma
 repositorio puede ser público o privado, como prefieras.
 </ul>
 
-<a><img width="250px" src="https://i.imgur.com/NW97Fip.png"></a>
-  <a><img width="250px" src="https://i.imgur.com/rZw9lZc.png"/></a>
-
+<a><img width="250px" src="https://i.imgur.com/LtO2JJH.png"></a>
+<a><img width="250px" src="https://i.imgur.com/b2wonbP.png"/></a>
+<a><img width="250px" src="https://i.imgur.com/FzZAEWm.png"/></a>
+<br />
 
 &nbsp;
