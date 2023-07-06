@@ -15,7 +15,7 @@ export const Detail = () => {
 
   const [product, setProduct] = useState<DetailProduct>();
   const [categories, setCategories] = useState<string[]>([]);
-  const [status, setStatus] = useState<Status>("initial")
+  const [status, setStatus] = useState<Status>("initial");
   
   const getDetail = async() => {
     try {

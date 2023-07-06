@@ -1,0 +1,129 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Componente Detail > Renderiza ProductNotFound si no se encuentra el producto 1`] = `
+<div>
+  <main
+    class="main__detail"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="product-not__div"
+      >
+        <article
+          class="product-not__article"
+        >
+          <img
+            alt=""
+            height="20"
+            src="/src/assets/productnot.svg"
+            width="20"
+          />
+          <div>
+            <p>
+              No hay publicaciones que coincidan con tu búsqueda
+            </p>
+            <ul>
+              <li>
+                Revisá la ortografía de la palabra.
+              </li>
+              <li>
+                Utilizá palabras más genéricas o menos palabras.
+              </li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+</div>
+`;
+
+exports[`Componente Detail > Se renderiza correctamente 1`] = `
+<div>
+  <main
+    class="main__detail"
+  >
+    <div
+      class="container"
+    >
+      <ol
+        class="breadcrumb"
+      >
+        <li>
+          <a
+            href="#"
+          >
+            Celulares
+          </a>
+        </li>
+        <li>
+          <a
+            href="#"
+          >
+            Iphone
+          </a>
+        </li>
+      </ol>
+      <article
+        class="detail__container"
+      >
+        <img
+          alt="Apple iPhone 11 (128 Gb) - Blanco"
+          class="detail__image"
+          src="http://http2.mlstatic.com/D_796892-MLA46114829828_052021-I.jpg"
+        />
+        <div
+          class="detail__contain"
+        >
+          <p
+            class="detail__condition"
+          >
+            new
+             - 
+            454545
+             
+            vendidos
+             
+          </p>
+          <h2
+            class="detail__title"
+          >
+            Apple iPhone 11 (128 Gb) - Blanco
+          </h2>
+          <p
+            class="detail__price"
+          >
+            $ 340.000
+            <sup
+              class="detail__decimals"
+            >
+              00
+            </sup>
+          </p>
+          <button
+            class="detail__button"
+          >
+            Comprar
+          </button>
+        </div>
+        <div
+          class="detail__container-div"
+        >
+          <h3
+            class="detail__description-title"
+          >
+            Descripción del producto
+          </h3>
+          <p
+            class="detail__description-text"
+          >
+            asdasda
+          </p>
+        </div>
+      </article>
+    </div>
+  </main>
+</div>
+`;
