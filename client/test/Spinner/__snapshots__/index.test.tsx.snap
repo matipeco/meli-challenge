@@ -6,7 +6,7 @@ exports[`Componente Spinner > Se renderiza correctamente 1`] = `
     class="spinner__container"
   >
     <img
-      alt=""
+      alt="cargando"
       height="50"
       src="/src/assets/spinner.svg"
       width="50"
