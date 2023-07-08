@@ -4,6 +4,7 @@
  <h1>Challenge Mercado libre</h1>
 </div>
 
+
 <h4>La aplicación consta de tres componentes principales: la caja de búsqueda, la visualización
 de resultados y la descripción del detalle del producto.</h4>
 <ul>
