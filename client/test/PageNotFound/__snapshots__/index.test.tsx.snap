@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Componente PageNotFound > Se renderiza correctamente 1`] = `
+<div>
+  <div
+    class="page-not__div"
+  >
+    <img
+      alt=""
+      height="20"
+      src="/src/assets/pagenot.svg"
+      width="20"
+    />
+    <p>
+      Parece que esta página no existe...
+    </p>
+  </div>
+</div>
+`;
