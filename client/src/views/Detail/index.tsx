@@ -25,7 +25,7 @@ export const Detail = () => {
       setStatus("success")
       setProduct(data.item)
       setCategories(data.categories)
-    } catch (error) {
+    } catch (error: any){
       if(error.response.status === 404){
         console.log(error)
         setStatus("error404")
