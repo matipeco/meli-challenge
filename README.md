@@ -40,7 +40,7 @@ A la hora de hacer la aplicación, es importante tener en cuenta ciertos detalle
 <a><img width="250px" src="https://i.imgur.com/FzZAEWm.png"/></a>
 <br />
 
-## 🤔 ¿Cómo iniciar el proyecto localmente?
+## ¿Cómo iniciar el proyecto localmente?
 
 Primero, clonarlo con:
 
