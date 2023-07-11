@@ -9,6 +9,7 @@ import './style.scss';
 import { Status } from "../Products";
 import { ProductNotFound } from "../../components/ProductNotFound";
 import { descriptionArray, getDecimals, priceFormat } from "../../utils";
+import { PageNotFound } from "../../components/PageNotFound";
 
 export const Detail = () => {
   const { id } = useParams();
@@ -25,7 +26,13 @@ export const Detail = () => {
       setProduct(data.item)
       setCategories(data.categories)
     } catch (error) {
-      setStatus("error")
+      if(error.response.status === 404){
+        console.log(error)
+        setStatus("error404")
+      }else{
+        console.log(error)
+        setStatus("error")
+      }
     }
   }
   
@@ -37,7 +44,8 @@ export const Detail = () => {
     <main className="main__detail">
       <Container>
       {status === "loading" && <Spinner/>}
-      {status === "error" && <ProductNotFound/>}
+      {status === "error404" && <ProductNotFound/>}
+      {status === "error" && <PageNotFound/>}
       {status === "success" && product && (
       <>
           <Breadcrumb categories={categories}/>
